@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Details</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<title>Student's portal</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+ .form-control{
+		height: 40px;
+		box-shadow: none;
+		color: #969fa4;
+	}
+	.form-control:focus{
+		border-color: #5cb85c;
+	}
+    .form-control, .btn{
+        border-radius: 3px;
+    }
+	.signup-form{
+		width: 400px;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+	.signup-form h2{
+		color: #636363;
+        margin: 0 0 15px;
+		position: relative;
+		text-align: center;
+    }
+	.signup-form h2:before, .signup-form h2:after{
+		content: "";
+		height: 2px;
+		width: 30%;
+		background: #d4d4d4;
+		position: absolute;
+		top: 50%;
+		z-index: 2;
+	}
+	.signup-form h2:before{
+		left: 0;
+	}
+	.signup-form h2:after{
+		right: 0;
+	}
+    .signup-form .hint-text{
+		color: #999;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+    .signup-form form{
+		color: #999;
+		border-radius: 3px;
+    	margin-bottom: 15px;
+        background: #f2f3f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+	.signup-form .form-group{
+		margin-bottom: 20px;
+	}
+	.signup-form input[type="checkbox"]{
+		margin-top: 3px;
+	}
+	.signup-form .btn{
+        font-size: 16px;
+        font-weight: bold;
+		min-width: 140px;
+        outline: none !important;
+    }
+	.signup-form .row div:first-child{
+		padding-right: 10px;
+	}
+	.signup-form .row div:last-child{
+		padding-left: 10px;
+	}
+    .signup-form a{
+		color: #fff;
+		text-decoration: underline;
+	}
+    .signup-form a:hover{
+		text-decoration: none;
+	}
+	.signup-form form a{
+		color: #5cb85c;
+		text-decoration: none;
+	}
+	.signup-form form a:hover{
+		text-decoration: underline;
+	}
+
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+img {
+  border: 5px solid white;
+}
+#images{
+    text-align:center;
+    margin:50px auto;
+}
+#images a{
+    margin:0px 20px;
+    display:inline-block;
+    text-decoration:none;
+    color:black;
+ }
+.caption{
+font-family: 'Open Sans', sans-serif;
+}
+</style>
+
+
+
+</head>
+
+<body style="background-color:#8BC6EC;background-image:linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);">
+<script>
+        function reply_click()
+        {
+
+            document.getElementById("show").value=document.getElementById("name").innerHTML
+            console.log(document.getElementById("show").value)
+
+        }
+    </script>
+<a href="home" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
+<div  style="background-color:white; width:192px"><h1>Car Images</h1></div>
+
+
+<div class="row">
+  <div class="column">
+    <img src="{{car.carimage.url}}" alt="carimage" style="width:90%">
+
+  </div>
+    <div class="column">
+    <div class="row">
+    <img src="{{car.carimagefront.url}}" alt="carimagefront" style="width:70%">
+         <h3>Front View</h3>
+  </div>
+  <div class="row">
+    <img src="{{car.carimageback.url}}" alt="carimageback" style="width:70%">
+       <h3>Back View</h3>
+  </div>
+  </div>
+    <div class="column">
+    <div class="row">
+    <img src="{{car.carimageleft.url}}" alt="carimageleft" style="width:70%">
+         <h3>Left View</h3>
+  </div>
+  <div class="row">
+    <img src="{{car.carimageright.url}}" alt="carimageright" style="width:70%">
+       <h3>Right View</h3>
+  </div>
+  </div>
+</div>
+{% for message in messages %}
+
+		  <div class="error">
+			  <p> {{message}} </p>
+		  </div>
+
+		  {% endfor %}
+
+
+
+<form action="dealdone" method="POST">
+	{% csrf_token %}
+<div class="form__group">
+                <input type="hidden" id ="show" name="company_name" placeholder="Last_name" class="form__input" />
+            </div>
+<div class="container-lg">
+
+    <div class="table-responsive" style="overflow-x: unset;">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Car<b><b></b>Details</b></h2></div><br><br>
+                </div>
+            </div>
+            <table class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th>Car Number</th>
+                        <th>Model</th>
+                        <th>Car Company</th>
+                        <th>Price/Day $</th>
+                        <th>Seaters</th>
+						<th>Petrol/Fuel</th>
+                        <th>Car Color</th>
+                        <th>Car Type</th>
+
+
+                    </tr>
+                </thead>
+                <tbody >
+
+
+
+
+                    <tr>
+                        <td id="name">{{car.carno}}</td>
+                        <td>{{ car.carmodel}}</td>
+                        <td>{{ car.carcompany}}</td>
+                        <td>{{ car.priceperday }}</td>
+						<td>{{car.seatingcapacity}}</td>
+						<td>{{car.cartype}}</td>
+                        <td>{{car.carcolor}}</td>
+                        <td>{{car.cargears}}</td>
+
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div style="width: 30%;
+    /* text-align: center; */
+    margin: auto;">
+		<div class="form-group">
+        	<input type="text" class="form-control" name="username" placeholder="Digital Signature (Username)" required="required">
+        </div>
+    <label>From</label>
+    <div class="form-group">
+        	<input type="date" class="form-control" name="from" placeholder="From"  id="dateSel" required="required">
+        </div>
+    <label>Till</label>
+    <div class="form-group">
+        	<input type="date" class="form-control" name="till" placeholder="till" id="datese" required="required">
+        </div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success btn-lg btn-block" onclick="reply_click()">Book</button>
+			</div>
+
+</div>
+
+</form>
+<script>
+	let today = new Date()
+
+	let year = today.getFullYear()
+	let month = today.getMonth() + 1 // the months are indexed starting with 0
+	let date = today.getDate()
+	var todayDate=String(today.getDate()).padStart(2,'0');
+	if(month<10){
+		month='0'+month;
+	}
+	if(date<10){
+		date='0'+date;
+	}
+	let dateStr = `${year}-${month}-${date}`
+<!--	let dateStr = `2022-04-05`-->
+
+	let input = document.getElementById("dateSel")
+	input.setAttribute('min', dateStr)
+	console.log(document.getElementById("dateSel").min)
+
+
+</script>
+
+<script>
+	let today = new Date()
+
+	let year = today.getFullYear()
+	let month = today.getMonth() + 1 // the months are indexed starting with 0
+	let date = today.getDate()
+	var todayDate=String(today.getDate()).padStart(2,'0');
+	if(month<10){
+		month='0'+month;
+	}
+	if(date<10){
+		date='0'+date;
+	}
+	let dateStr = `${year}-${month}-${date}`
+<!--	let dateStr = `2022-04-05`-->
+
+	let value = document.getElementById("datese")
+	value.setAttribute('min', dateStr)
+	console.log(document.getElementById("datese").min)
+
+
+</script>
+
+
+
+
+</body>
+</html>

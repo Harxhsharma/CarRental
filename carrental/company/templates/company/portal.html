@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Portal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@500&display=swap" rel="stylesheet">
+<style>
+  body {
+    min-height: 100vh;
+font-family: 'Encode Sans Expanded', sans-serif;
+
+
+}
+
+
+</style>
+</head>
+
+
+
+<body style="background-color:#8BC6EC;background-image:linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);width:100%;height:100%"  >
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CARRENTALS.CO</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+
+
+      <li><a href="clients/"><span class="glyphicon glyphicon-user"></span>Rent</a></li>
+<li><a href="home"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
+
+    </ul>
+  </div>
+</nav>
+<header class="bg-dark py-5">
+
+  <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+
+
+
+{% for message in messages %}
+
+		  <h1 class="display-4 fw-bolder">
+			  {{message}}
+
+</h1>
+		  {% endfor %}
+
+      </div>
+  </div>
+</header>
+
+<img src="/static/images/this3.jpg"  style="margin-left:150px;margin-top:25px">
+<div style="float: right; width: 280px;  font-style: italic;font-size: 24px;  margin-top: 85px;/* margin-left: 58px; */ margin-right: 178px;">
+  "We are here to serve you with every possible thing you want from  us and have an amazing year ahead!"
+</div>
+</body>
+</html>
